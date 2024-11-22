@@ -8,7 +8,6 @@ export default function Page() {
         <div className={'leading-loose'}>
             <Nav/>
             <Home/>
-            <Banner/>
             <About/>
             <Naming />
             <Services />
@@ -119,7 +118,7 @@ const About = () => {
             <p className={"font-medium text-2xl my-10"}>
                 Established with a vision to transform the transportation industry, Hatke Global Logistics offers
                 unparalleled expertise and a commitment to excellence. Our mission is to provide transparent, dynamic,
-                and efficient logistics solutions, ensuring our clients' needs are met with utmost precision.
+                and efficient logistics solutions, ensuring our clients needs are met with utmost precision.
             </p>
         </div>
         <div className={'grid grid-cols-1 gap-5'}>
@@ -127,10 +126,6 @@ const About = () => {
             <img src="/about-2.jpg" alt="" className={'rounded object-cover'}/>
         </div>
     </Container>
-}
-
-const Banner = () => {
-    return
 }
 
 const Home = () => {

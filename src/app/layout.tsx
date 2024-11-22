@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Roboto,Dosis } from 'next/font/google'
+import type {Metadata} from "next";
+import {Dosis} from 'next/font/google'
 import "./globals.css";
 
 // const roboto = Roboto({
@@ -7,7 +7,8 @@ import "./globals.css";
 // })
 //
 const dosis = Dosis({
-    weight: ["200","300","400","500","700","800"]
+    weight: ["200","300","400","500","700","800"],
+    subsets: ["latin"]
 })
 
 export const metadata: Metadata = {
