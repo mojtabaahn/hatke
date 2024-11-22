@@ -1,11 +1,9 @@
 import type {Metadata} from "next";
 import {Dosis} from 'next/font/google'
 import "./globals.css";
+import { Provider } from "@/components/ui/provider"
+import {Theme} from "@chakra-ui/react";
 
-// const roboto = Roboto({
-//   weight: ["100","300","400","500","700","900"]
-// })
-//
 const dosis = Dosis({
     weight: ["200","300","400","500","700","800"],
     subsets: ["latin"]
@@ -22,11 +20,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
         <body
             className={`${dosis.className} antialiased`}
         >
-        {children}
+        <Provider>
+            <Theme appearance="light">
+            {children}
+            </Theme>
+        </Provider>
         </body>
         </html>
     );

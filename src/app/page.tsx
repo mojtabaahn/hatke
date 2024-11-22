@@ -1,7 +1,13 @@
-// import Image from "next/image";
+"use client";
 
-import {ReactNode} from "react";
+import {ReactNode, useState} from "react";
 import PulsatingButton from "@/components/ui/pulsating-button";
+import {
+    DrawerBody,
+    DrawerContent,
+    DrawerRoot,
+    DrawerTrigger
+} from "@/components/ui/drawer";
 
 export default function Page() {
     return (
@@ -9,24 +15,24 @@ export default function Page() {
             <Nav/>
             <Home/>
             <About/>
-            <Naming />
-            <Services />
-            <GlobalNetwork />
-            <ContactUs />
+            <Naming/>
+            <Services/>
+            <GlobalNetwork/>
+            <ContactUs/>
         </div>
     );
 }
 
 
-const ContactItem = ({title,icon,className} : {title:string,icon:ReactNode,className:string}) => {
+const ContactItem = ({title, icon, className}: { title: string, icon: ReactNode, className: string }) => {
     return <div className={`px-8 py-3 rounded-lg flex items-center justify-center space-x-6  ${className}`}>
         {icon}
         <div className={'uppercase text-2xl text-white font-semibold text-center'}>{title}</div>
     </div>
 }
 const ContactUs = () => {
-    return <div className={'py-32  bg-blue-50'}>
-        <Container className={'grid grid-cols-3 gap-20'}>
+    return <div id={'contact-us'} className={'py-32  bg-blue-50'}>
+        <Container className={'grid grid-cols-2 xl:grid-cols-3 gap-20'}>
             <div className={'col-span-2'}>
                 <h2 className={"text-7xl font-light uppercase"}>
                     Contact Us
@@ -39,7 +45,7 @@ const ContactUs = () => {
                     </p>
                 </div>
             </div>
-            <div className="flex flex-col space-y-6">
+            <div className="col-span-2 xl:col-span-1 flex flex-col space-y-6">
                 <ContactItem title={'Telegram'} icon={<Telegram/>} className={'bg-blue-500'}/>
                 <ContactItem title={'WhatsApp'} icon={<Whatsapp/>} className={'bg-green-500'}/>
                 <ContactItem title={'Wechat'} icon={<Wechat/>} className={'bg-sky-500'}/>
@@ -49,44 +55,48 @@ const ContactUs = () => {
 }
 
 const Services = () => {
-    return <div className={'py-32 bg-blue-50'}>
+    return <div id={'services'} className={'py-32 bg-blue-50'}>
         <Container>
             <h2 className={"text-7xl font-light uppercase"}>
                 Our Services
             </h2>
-            <div className="grid grid-cols-5 gap-10 -mx-16 my-20">
-                <ServiceItem title={'Sea Freight'} icon={<SeaIcon />} />
-                <ServiceItem title={'Air Cargo'} icon={<SkyIcon />} />
-                <ServiceItem title={'Land Transport'} icon={<LandIcon />} />
-                <ServiceItem title={'customs brokerage'} icon={<CalcIcon />} />
-                <ServiceItem title={'logistics consultancy'} icon={<ShakeIcon />} />
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 my-20">
+                <ServiceItem title={'Sea Freight'} icon={<SeaIcon/>}/>
+                <ServiceItem title={'Air Cargo'} icon={<SkyIcon/>}/>
+                <ServiceItem title={'Land Transport'} icon={<LandIcon/>}/>
+                <ServiceItem title={'customs brokerage'} icon={<CalcIcon/>}/>
+                <ServiceItem title={'logistics consultancy'} icon={<ShakeIcon/>}/>
             </div>
             <div className={'font-medium text-2xl my-10'}>
-                Our diverse range of services includes sea freight, land transport, air cargo, customs brokerage, and logistics consultancy. Each service is tailored to meet the unique demands of our clients, ensuring optimal efficiency and reliability.
+                Our diverse range of services includes sea freight, land transport, air cargo, customs brokerage, and
+                logistics consultancy. Each service is tailored to meet the unique demands of our clients, ensuring
+                optimal efficiency and reliability.
             </div>
         </Container>
     </div>
 }
 
 const GlobalNetwork = () => {
-    return <div className={'py-32'}>
+    return <div id={'network'} className={'py-32'}>
         <Container>
             <h2 className={"text-7xl font-light uppercase"}>
                 Global Network
             </h2>
-            <div className="grid grid-cols-3 gap-10 my-20">
-                <NetworkItem title={'Middle East'} icon={<img src={'/hatke/middle-east.png'} />} />
-                <NetworkItem title={'China'} icon={<img src={'/hatke/china.png'}/>}/>
-                <NetworkItem title={'SE Asia'} icon={<img src={'/hatke/sea.png'}/>}/>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10 my-20">
+                <NetworkItem title={'Middle East'} icon={<img src={'/middle-east.png'}/>}/>
+                <NetworkItem title={'China'} icon={<img src={'/china.png'}/>}/>
+                <NetworkItem title={'SE Asia'} icon={<img src={'/sea.png'}/>}/>
             </div>
             <div className={'font-medium text-2xl my-10'}>
-                With key hubs in strategic locations in Middle East, China and SE Asia, Hatke Global Logistics ensures your cargo reaches its destination smoothly and on time. Explore our global network and see how we connect the world through seamless logistics solutions.
+                With key hubs in strategic locations in Middle East, China and SE Asia, Hatke Global Logistics ensures
+                your cargo reaches its destination smoothly and on time. Explore our global network and see how we
+                connect the world through seamless logistics solutions.
             </div>
         </Container>
     </div>
 }
 
-const NetworkItem = ({title,icon} : {title:string,icon:ReactNode}) => {
+const NetworkItem = ({title, icon}: { title: string, icon: ReactNode }) => {
     return <div className={'p-6 flex flex-col items-center justify-center space-y-6'}>
         {icon}
         <div className={'uppercase text-3xl text-center'}>{title}</div>
@@ -94,8 +104,9 @@ const NetworkItem = ({title,icon} : {title:string,icon:ReactNode}) => {
 }
 
 
-const ServiceItem = ({title,icon} : {title:string,icon:ReactNode}) => {
-    return <div className={'bg-white rounded shadow-2xl aspect-square p-6 flex flex-col items-center justify-center space-y-6'}>
+const ServiceItem = ({title, icon}: { title: string, icon: ReactNode }) => {
+    return <div
+        className={'bg-white rounded shadow-2xl aspect-square p-6 flex flex-col items-center justify-center space-y-6'}>
         {icon}
         <div className={'uppercase text-3xl text-center'}>{title}</div>
     </div>
@@ -104,13 +115,17 @@ const ServiceItem = ({title,icon} : {title:string,icon:ReactNode}) => {
 const Naming = () => {
     return <div className={'py-20 bg-blue-500 text-white font-medium text-2xl'}>
         <Container>
-            Hatke, named after the river that nurtures our ancestral village, symbolizes our principles of transparency, fluency, and dynamism. Like the clear waters revealing the riverbed below, we ensure transparency in all our processes. Our operations flow as seamlessly as the river’s currents, dynamically adapting to every challenge. Just as Hatke moves purposefully toward the sea, we are driven toward the sea of success, delivering excellence with every shipment
+            Hatke, named after the river that nurtures our ancestral village, symbolizes our principles of transparency,
+            fluency, and dynamism. Like the clear waters revealing the riverbed below, we ensure transparency in all our
+            processes. Our operations flow as seamlessly as the river’s currents, dynamically adapting to every
+            challenge. Just as Hatke moves purposefully toward the sea, we are driven toward the sea of success,
+            delivering excellence with every shipment
         </Container>
     </div>
 }
 
 const About = () => {
-    return <Container className={'grid grid-cols-3 gap-20 py-32 items-center'}>
+    return <div id={'about'}><Container className={'grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-20 py-32 items-center'}>
         <div className={'col-span-2 space-y-10'}>
             <h2 className={"text-7xl font-light uppercase"}>
                 About Hatke
@@ -121,58 +136,85 @@ const About = () => {
                 and efficient logistics solutions, ensuring our clients needs are met with utmost precision.
             </p>
         </div>
-        <div className={'grid grid-cols-1 gap-5'}>
-            <img src="/hatke/about-1.jpg" alt="" className={'rounded object-cover'}/>
-            <img src="/hatke/about-2.jpg" alt="" className={'rounded object-cover'}/>
+        <div className={'grid grid-cols-1 col-span-2 md:col-span-1 gap-5'}>
+            <img src="/about-1.jpg" alt="" className={'rounded object-cover w-full'}/>
+            <img src="/about-2.jpg" alt="" className={'rounded object-cover w-full'}/>
         </div>
     </Container>
+    </div>
 }
 
 const Home = () => {
     return (
-        <div className={"w-full overflow-hidden relative"}>
-                <Container className={"text-center py-20 z-10 relative"}>
-                    <h2 className={"text-center text-6xl font-bold my-20"}>
-                        Welcome to Hatke Global Logistics!
-                    </h2>
-                    <p className={"font-medium text-2xl px-32 leading-loose my-10"}>
-                        We provide seamless and reliable transportation solutions across sea, land, and air. Discover
-                        our
-                        comprehensive services and see how we can help your business thrive.
-                    </p>
-                    <div className="flex items-center justify-center my-10">
-                        <PulsatingButton duration={"5s"}
-                                         className={"px-20 py-3 font-bold text-2xl bg-blue-500 text-white rounded-lg"}>Contact
-                            Us</PulsatingButton>
-                    </div>
-                </Container>
-            <img className={"w-full h-full scale-[1.2] object-cover blur absolute left-0 top-0"} src={"/hatke/banner.jpg"}/>
+        <div id={'home'} className={"w-full overflow-hidden relative"}>
+            <Container className={"text-center py-20 z-10 relative"}>
+                <h2 className={"text-center text-6xl font-bold my-20"}>
+                    Welcome to Hatke Global Logistics!
+                </h2>
+                <p className={"font-medium text-2xl md:px-10 xl:px-32 leading-loose my-10"}>
+                    We provide seamless and reliable transportation solutions across sea, land, and air. Discover
+                    our
+                    comprehensive services and see how we can help your business thrive.
+                </p>
+                <div className="flex items-center justify-center my-10">
+                    <PulsatingButton duration={"5s"} href={'#contact-us'}
+                                     className={"px-20 py-3 font-bold text-2xl bg-blue-500 !text-white rounded-lg"}>Contact
+                        Us</PulsatingButton>
+                </div>
+            </Container>
+            <img className={"w-full h-full scale-[1.2] object-cover blur absolute left-0 top-0"} src={"/banner.jpg"}/>
 
         </div>
     )
 }
 
 const Container = ({children, className = ''}: { children: ReactNode, className?: string }) => {
-    return <div className={`max-w-[1200px] mx-auto ${className}`}>{children}</div>
+    return <div className={`max-w-[1200px] px-4  md:px-10 mx-auto ${className}`}>{children}</div>
 }
 
-const NavItem = (props: { children: ReactNode }) => {
+const NavItem = (props: { children: ReactNode, href: string }) => {
     return (
-        <div className={"font-medium text-xl"}>{props.children}</div>
+        <a href={props.href} className={"font-medium text-xl"}>{props.children}</a>
     )
 }
 
+const MobileNav = () => {
+    const [open, setOpen] = useState(false)
+    // const btnRef = useRef()
+
+    return (
+        <div className={'lg:hidden'}>
+            <DrawerRoot placement={'end'} open={open} onOpenChange={(e) => setOpen(e.open)}>
+                <DrawerTrigger>
+                    <MenuIcon/>
+                </DrawerTrigger>
+                <DrawerContent portalled={false}>
+                    <DrawerBody>
+                        <div className="grid grid-cols-1 gap-3 text-xl leading-loose py-10">
+                            <a href={'#home'}>Home</a>
+                            <a href={'#about'}>About</a>
+                            <a href={'#services'}>Services</a>
+                            <a href={'#network'}>Global Network</a>
+                            <a href={'#contact-us'}>Contact Us</a>
+                        </div>
+                    </DrawerBody>
+                </DrawerContent>
+            </DrawerRoot>
+        </div>
+    )
+}
 const Nav = () => (
     <div>
         <Container className='flex items-center justify-between h-[154px]'>
             <div className={"font-bold text-2xl"}>Hatke Global Logistics</div>
-            <div className={"flex items-center space-x-10"}>
-                <NavItem>Home</NavItem>
-                <NavItem>About</NavItem>
-                <NavItem>Services</NavItem>
-                <NavItem>Global Network</NavItem>
-                <NavItem>Contact Us</NavItem>
+            <div className={"hidden lg:flex items-center space-x-10"}>
+                <NavItem href={'#home'}>Home</NavItem>
+                <NavItem href={'#about'}>About</NavItem>
+                <NavItem href={'#services'}>Services</NavItem>
+                <NavItem href={'#network'}>Global Network</NavItem>
+                <NavItem href={'#contact-us'}>Contact Us</NavItem>
             </div>
+            <MobileNav/>
         </Container>
     </div>
 )
@@ -246,4 +288,12 @@ const Telegram = () => {
             fill="white"/>
     </svg>
 
+}
+
+const MenuIcon = () => {
+    return <svg className={'w-10 h-10'} xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000"
+                viewBox="0 0 256 256">
+        <path
+            d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path>
+    </svg>
 }
