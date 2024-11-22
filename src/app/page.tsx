@@ -75,9 +75,9 @@ const GlobalNetwork = () => {
                 Global Network
             </h2>
             <div className="grid grid-cols-3 gap-10 my-20">
-                <NetworkItem title={'Middle East'} icon={<img src={'/middle-east.png'} />} />
-                <NetworkItem title={'China'} icon={<img src={'/china.png'}/>}/>
-                <NetworkItem title={'SE Asia'} icon={<img src={'/sea.png'}/>}/>
+                <NetworkItem title={'Middle East'} icon={<img src={'/hatke/middle-east.png'} />} />
+                <NetworkItem title={'China'} icon={<img src={'/hatke/china.png'}/>}/>
+                <NetworkItem title={'SE Asia'} icon={<img src={'/hatke/sea.png'}/>}/>
             </div>
             <div className={'font-medium text-2xl my-10'}>
                 With key hubs in strategic locations in Middle East, China and SE Asia, Hatke Global Logistics ensures your cargo reaches its destination smoothly and on time. Explore our global network and see how we connect the world through seamless logistics solutions.
@@ -122,8 +122,8 @@ const About = () => {
             </p>
         </div>
         <div className={'grid grid-cols-1 gap-5'}>
-            <img src="/about-1.jpg" alt="" className={'rounded object-cover'}/>
-            <img src="/about-2.jpg" alt="" className={'rounded object-cover'}/>
+            <img src="/hatke/about-1.jpg" alt="" className={'rounded object-cover'}/>
+            <img src="/hatke/about-2.jpg" alt="" className={'rounded object-cover'}/>
         </div>
     </Container>
 }
@@ -146,7 +146,7 @@ const Home = () => {
                             Us</PulsatingButton>
                     </div>
                 </Container>
-            <img className={"w-full h-full scale-[1.2] object-cover blur absolute left-0 top-0"} src={"/banner.jpg"}/>
+            <img className={"w-full h-full scale-[1.2] object-cover blur absolute left-0 top-0"} src={"/hatke/banner.jpg"}/>
 
         </div>
     )
