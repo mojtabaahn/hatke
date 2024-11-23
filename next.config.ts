@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     experimental: {
         optimizePackageImports: ["@chakra-ui/react"],
     },
+    basePath: '/',
 };
 
 export default nextConfig;
