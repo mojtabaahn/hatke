@@ -1,11 +1,11 @@
 import type {Metadata} from "next";
-import {Dosis} from 'next/font/google'
+import {Merriweather} from 'next/font/google'
 import "./globals.css";
 import { Provider } from "@/components/ui/provider"
 import {Theme} from "@chakra-ui/react";
 
-const dosis = Dosis({
-    weight: ["200","300","400","500","700","800"],
+const merri = Merriweather({
+    weight: ["400","300","700","900"],
     subsets: ["latin"]
 })
 
@@ -22,7 +22,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
         <body
-            className={`${dosis.className} antialiased`}
+            className={`${merri.className} antialiased`}
         >
         <Provider>
             <Theme appearance="light">
